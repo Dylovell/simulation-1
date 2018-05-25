@@ -46,7 +46,7 @@ class Form extends Component {
         <p>price</p>
         <input value={this.state.priceInput} 
             onChange={e=>this.setState({priceInput:e.target.value})}/>
-        <button onClick={()=>this.addButton()}> Add</button>
+        <button onClick={()=>this.addButton()} > Add</button>
         <button onClick={()=>this.cancelButton()}> Cancel</button>
       </div>
     );

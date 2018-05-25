@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Product from './Product.js';
 import axios from 'axios';
+import Product from './Product.js';
+import Edit from './Edit.js';
 
 class Dashboard extends Component {
     constructor(){
@@ -24,6 +25,12 @@ class Dashboard extends Component {
             this.setState({selfie: res.data})
         })
     }
+    editItem(id) {
+        console.log(id)
+        axios.delete(`/api/selfie/${id}`).then((res)=> {
+            this.setState({selfie: res.data})
+        })
+    }
 
   render() {
     return (
@@ -32,6 +39,7 @@ class Dashboard extends Component {
         <Product
             el={el}
             deleteItem={this.deleteItem}
+            editItem={this.editItem}
             />
             {console.log(el)}
         </div>

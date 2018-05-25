@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom';
     <div id='submit'>
        SELFIE
        <Link to='/'>
-            <p>DatBoi</p>
+            <p>DASHBOARD</p>
         </Link>
         <Link to='/form'>
-            <p>addJuan</p>
+            <p>add Juan</p>
         </Link>
     </div>
   )
