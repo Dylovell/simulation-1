@@ -5,6 +5,14 @@ import Dashboard from './Components/Dashboard.js';
 import Form from './Components/Form.js';
 
 class App extends Component {
+  constructor(){
+    super()
+
+    this.state={
+      selfie:[],
+      
+    }
+  }
   render() {
     return (
       <div className="App">

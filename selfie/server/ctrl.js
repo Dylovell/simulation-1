@@ -1,0 +1,18 @@
+module.exports = {
+    getAll: (req, res) => {
+        const db = req.app.get('db');
+
+        db.get_all()
+            .then(selfie => res.status(200).send(selfie))
+            .catch(() => res.status(500).send())
+    },
+    addItem: (req,res) => {
+        const db = req.app.get('db');
+        const {imageurl, item, price}=req.body
+
+        db.add_item([imageurl, item, price])
+            .then(selfie => res.status(200).send(selfie))
+            .catch(() => res.status(500).send())
+    }
+    
+ }
