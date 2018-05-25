@@ -1,9 +1,13 @@
 import React from 'react';
 
- function Product() {
+ function Product(props) {
   return (
     <div id='submit'>
-        Product
+        <img id='image' src={props.el.imageurl} alt=''/>
+        {props.el.item}
+        {props.el.price}
+        <button onClick={()=>props.deleteItem(props.el.id)}>Delete?</button>
+        <hr/>
     </div>
   )
 }

@@ -9,8 +9,8 @@ app.use(bodyParser.json())
 massive(process.env.CONNECTION_STRING).then(db => app.set('db', db))
 
 app.get('/api/selfie', ctrl.getAll)
-app.post('/api/selfie', ctrl.additem)
-// app.delete(`/api/selfie/:id`, ctrl.deleteitem)
+app.post('/api/selfie', ctrl.addItem)
+app.delete(`/api/selfie/:id`, ctrl.deleteItem)
 // app.put('/api/selfie/:id', ctrl.edititem)
 
 const port = 3030

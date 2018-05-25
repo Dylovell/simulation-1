@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header.js';
 import Dashboard from './Components/Dashboard.js';
 import Form from './Components/Form.js';
+import './App.css';
+
 
 class App extends Component {
   constructor(){
@@ -10,17 +12,22 @@ class App extends Component {
 
     this.state={
       selfie:[],
-      
+
     }
   }
   render() {
     return (
       <div className="App">
-        <p>App</p>
-        <Header/>
-        <Dashboard/>
-        <Form/>
-      
+      <HashRouter>
+        <div>
+          <Header/>
+          <hr/>
+          <Switch>
+            <Route component={Dashboard} path='/' exact />
+            <Route component={Form} path='/form' />
+          </Switch>
+        </div>
+      </HashRouter>
       </div>
     );
   }

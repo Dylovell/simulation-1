@@ -13,6 +13,15 @@ module.exports = {
         db.add_item([imageurl, item, price])
             .then(selfie => res.status(200).send(selfie))
             .catch(() => res.status(500).send())
+    },
+    deleteItem: (req,res) => {
+        const db = req.app.get('db');
+        const {id} = req.params
+
+        db.delete_item([id])
+        .then(selfie => res.status(200).send(selfie))
+        .catch(() => res.status(500).send())
+
     }
     
  }

@@ -8,22 +8,34 @@ class Dashboard extends Component {
         this.state={
             selfie:[],
         }
+
+        this.deleteItem = this.deleteItem.bind(this)
     }
 
     componentDidMount() {
         axios.get('/api/selfie').then((res) => {
-          this.setState({
-            selfie: res.data
-          })
+          this.setState({selfie: res.data})
         })
-      }    
+      } 
+      
+    deleteItem(id) {
+        console.log(id)
+        axios.delete(`/api/selfie/${id}`).then((res)=> {
+            this.setState({selfie: res.data})
+        })
+    }
 
   render() {
     return (
-      <div>
-          <p>Dashboard</p>
-            <Product/>
-      </div>
+        this.state.selfie.map((el,i) =>
+      <div key={i + el} id='product'>
+        <Product
+            el={el}
+            deleteItem={this.deleteItem}
+            />
+            {console.log(el)}
+        </div>
+      )
     );
   }
 }
